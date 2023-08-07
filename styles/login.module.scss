@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+
+
+    .contentImg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-shadow: rgba(145, 158, 171, 0.25) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px;
+        background-color: rgb(249, 250, 251);
+
+        h4 {
+            text-align: center;
+        }
+    }
+
+    .contenFormulario {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .contentImg {
+        display: none !important;
+    }
+}

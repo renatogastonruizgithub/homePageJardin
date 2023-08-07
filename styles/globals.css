@@ -1,0 +1,217 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+
+p {
+    font-family: "Public Sans", sans-serif !important;
+
+}
+
+:root {
+
+    --swiper-navigation-size: 30px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 20px !important;
+    height: 20px !important;
+    color: rgb(21, 21, 21) !important;
+
+}
+
+#nextOur,
+#prevOur {
+    width: 20px !important;
+    height: 20px !important;
+    color: rgb(27, 26, 26) !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.links {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+.imgGolbal {
+    object-fit: cover;
+    position: relative;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgb(190, 190, 190),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+
+}
+
+#nextNews,
+#prevNews {
+    width: 20px !important;
+    height: 20px !important;
+    color: rgb(27, 26, 26) !important;
+
+}
+
+
+.sideBar {
+    display: none;
+}
+
+.mainAdmin {
+    width: 100%;
+    height: 100vh;
+}
+
+.contentAddPhotos {
+    padding: 5rem 0;
+}
+
+.contentViewPhotos {
+    padding-top: 10%;
+    min-height: 100%;
+    padding-Top: 5rem;
+    position: relative;
+    background-Color: #e7e7e7
+}
+
+.contentDashboard {
+    padding-top: 10%;
+    height: 100%;
+    padding-Top: 2rem;
+    position: relative;
+    background-Color: #e7e7e7;
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .sideBar {
+        display: block;
+        background-color: rgb(74, 125, 196);
+        width: 20%;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        padding-top: 80px;
+        color: #e7e7e7;
+    }
+
+    .mainAdmin {
+        width: 100%;
+        background-color: #e7e7e7;
+        padding-top: 7%;
+        position: relative;
+    }
+
+    .contentViewPhotos {
+        padding-top: 4%;
+    }
+
+    .contentAddPhotos {
+        padding-top: 2rem;
+    }
+}
+
+.swal2-container {
+    z-index: 4000 !important;
+}

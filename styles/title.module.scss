@@ -1,0 +1,14 @@
+.title {
+    font-weight: 700;
+    text-align: left;
+    position: relative;
+    max-width: max-content !important;
+
+    span {
+        height: 3px;
+        width: 50%;
+        display: block;
+        position: relative;
+        left: 0;
+    }
+}

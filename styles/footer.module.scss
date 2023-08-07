@@ -1,0 +1,53 @@
+.ContainerFooter {
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(74, 49, 197);
+    position: relative;
+    padding-top: 9rem;
+    padding-bottom: 1rem;
+    color: white;
+
+    img {
+        object-fit: cover !important;
+        z-index: 0;
+        border-radius: 5px;
+    }
+
+    .fill {
+        fill: #fff !important;
+        position: absolute;
+        top: 0;
+        z-index: 20;
+        height: 90px;
+    }
+}
+
+.signature {
+    min-height: 70px;
+    background-color: rgb(57, 30, 194);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        color: white;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        opacity: .7;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .ContainerFooter {
+        padding-top: 15rem;
+        padding-bottom: 1rem;
+
+        .fill {
+            height: auto !important;
+            top: -1rem;
+            z-index: 20;
+
+        }
+    }
+}

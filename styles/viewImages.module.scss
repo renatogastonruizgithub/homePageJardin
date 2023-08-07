@@ -1,0 +1,26 @@
+.contentImg {
+    width: 80%;
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        position: relative !important;
+        width: 80%;
+        height: 90vh;
+        object-fit: contain;
+    }
+
+    span {
+        background-color: rgba(0, 0, 0, 0.472);
+        position: absolute;
+        z-index: 7500;
+        left: 0;
+        bottom: 0;
+        font-size: 1.5rem;
+        color: aliceblue;
+        width: 100%;
+        text-align: center;
+    }
+
+}

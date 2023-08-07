@@ -1,0 +1,84 @@
+.contentBanner {
+    background-color: rgb(199, 199, 199);
+    height: 97vh;
+    width: 100%;
+    position: relative;
+
+    .slide {
+        height: 97vh;
+        background-color: rgb(166, 169, 169);
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: " ";
+            background-color: rgba(0, 0, 0, 0.537);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 200;
+        }
+
+        .contentTextSlider {
+            position: absolute;
+            /*  background-color: rgba(240, 248, 255, 0.274); */
+            width: 70%;
+            left: 50%;
+            top: 50%;
+            z-index: 300;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            p {
+                color: white;
+                margin-bottom: 2rem;
+                opacity: .7;
+            }
+
+            h1 {
+                font-weight: 700;
+                color: white;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 2rem;
+
+                span {
+                    height: 4px;
+                    width: 73px;
+                    display: block;
+                    margin: 8px auto 0;
+                    background-color: #ff3366;
+                }
+            }
+
+        }
+    }
+}
+
+.img {
+    object-fit: cover !important;
+}
+
+@media only screen and (min-width: 1024px) {
+    .contentBanner {
+        .slide {
+            .contentTextSlider {
+                h1 {
+                    font-weight: 700;
+                    font-size: 4rem;
+                    margin-bottom: 3rem;
+                }
+
+                p {
+                    font-size: 1.5rem;
+
+                }
+            }
+        }
+    }
+
+}
