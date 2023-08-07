@@ -1,12 +1,12 @@
 .contentBanner {
-    background-color: rgb(199, 199, 199);
-    height: 97vh;
+    background-color: rgb(240, 240, 240);
+    height: 100vh;
     width: 100%;
     position: relative;
 
     .slide {
-        height: 97vh;
-        background-color: rgb(166, 169, 169);
+        height: 100vh;
+        background-color: rgb(240, 240, 240);
         position: relative;
 
         &::before {
@@ -59,9 +59,9 @@
     }
 }
 
-.img {
+/* .img {
     object-fit: cover !important;
-}
+} */
 
 @media only screen and (min-width: 1024px) {
     .contentBanner {

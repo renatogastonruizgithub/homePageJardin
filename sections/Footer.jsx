@@ -14,10 +14,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-import bg from '../public/assets/footer-pattern.png'
-
 import { useSelector, useDispatch } from 'react-redux'
 import { getCompany } from '../features/thunksHome';
+import Logo from '../components/Logo';
+import Social from '../components/Social';
 
 const Footer = () => {
     const { dataCompany } = useSelector((state) => state.home)
@@ -58,21 +58,9 @@ const Footer = () => {
                                 return (
                                     <div key={inde} >
                                         <Stack spacing={2}>
+                                            <Logo />
+                                            <Social color="#fff"></Social>
 
-                                            <Image src={"/assets/logo.jpg"} alt="asd" width={80}
-                                                height={80} />
-                                            <Typography variant="p" gutterBottom>
-                                                En nuestros programas de participación de adultos, para la mayoría de los estudiantes, es su primer programa en
-                                            </Typography>
-                                            <List>
-                                                <ListItem disablePadding>
-                                                    <ListItemButton sx={{ textAlign: 'center' }}>
-                                                        <InstagramIcon ></InstagramIcon>
-                                                    </ListItemButton>
-                                                    <ListItemButton href={`${y.linkFb}`} target={"_blank"} > <FacebookIcon ></FacebookIcon></ListItemButton>
-                                                    <ListItemButton><WhatsAppIcon ></WhatsAppIcon></ListItemButton>
-                                                </ListItem>
-                                            </List>
                                         </Stack>
                                     </div>
 

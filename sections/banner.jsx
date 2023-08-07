@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Navigation, Autoplay } from "swiper";
@@ -7,9 +7,25 @@ import "swiper/css/navigation";
 import banner from "../styles/banner.module.scss"
 import Image from 'next/image';
 import Button from '@mui/material/Button';
+import { Titles } from '../components/titles';
+import { getPublicationRelevant } from '../features/thunksHome';
+import { useDispatch, useSelector } from 'react-redux';
+import { Skeleton } from '@mui/material';
 
 
 function Banner() {
+
+    const { dataPublicationRelevant } = useSelector((state) => state.home)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+
+        dispatch(getPublicationRelevant())
+    }, [])
+    if (!dataPublicationRelevant || !Array.isArray(dataPublicationRelevant) || dataPublicationRelevant.length === 0) {
+        return <Skeleton animation="wave" variant="rectangular" width="100%" height="100vh" />
+    }
+
     return (
         <>
             <div className={banner.contentBanner}>
@@ -27,33 +43,34 @@ function Banner() {
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                 >
-                    <SwiperSlide className={banner.slide}>
-                        <div className={banner.contentTextSlider} > 
-                            <h1>UPGRADE YOUR SUNDAYS
-                                <span></span>
-                            </h1>
-                            <p> offers up to -70% off the best luxury hotels every Sunday.</p>
-                            <Button size="medium" type="submit" variant="contained" sx={{backgroundColor: "#ff3366"}} >
-                                Ver mas
-                            </Button>
-                        </div>
-                       <Image className={banner.img} src={"/assets/banner.png"} alt="asd" fill sizes="100vw" />
-                    
-                    </SwiperSlide>
-                    <SwiperSlide className={banner.slide}>
-                          <div className={banner.contentTextSlider} > 
-                            <h1>golsadf <span></span></h1>
-                            <p>Enjoy secret offers up to -70% off the best luxury hotels every Sunday.</p>
-                        </div>
-                        <Image className={banner.img} src={"/assets/illustration_login.png"} alt="asd" fill sizes="100vw" />
-                    </SwiperSlide>
-                   
-                    <SwiperSlide className={banner.slide}>Slide 3</SwiperSlide>
-                  
+                    {
+                        dataPublicationRelevant.map((publication, p) => {
+                            return (
+                                <SwiperSlide key={p} className={banner.slide}>
+                                    <div className={banner.contentTextSlider} >
+                                        <Titles colorTitle={"#fff"}
+                                            color={"#ff3366"}
+                                            variant={"h2"}
+                                            text={publication.title}
+                                        />
+                                        <p>{publication.biography}</p>
+                                        <Button size="medium" type="submit" variant="contained" sx={{ backgroundColor: "#ff3366" }} >
+                                            Ver mas
+                                        </Button>
+                                    </div>
+                                    <Image style={{ objectFit: "cover", width: "100%" }} className={banner.img} src={publication.imageUrl} alt="asd" fill sizes="100vw" />
+
+                                </SwiperSlide>
+                            )
+                        })
+                    }
+
+
+
 
                 </Swiper>
-                <div className="swiper-button-next" />
-                <div className="swiper-button-prev" />
+                <div id='nextBanner' className="swiper-button-next" />
+                <div id='prevBanner' className="swiper-button-prev" />
             </div>
 
 

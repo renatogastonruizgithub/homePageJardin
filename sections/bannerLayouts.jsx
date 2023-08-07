@@ -9,7 +9,7 @@ import { Skeleton } from '@mui/material';
 
 export const BannerLayouts = ({ title, itemData }) => {
     if (!itemData || !Array.isArray(itemData) || itemData.length === 0) {
-        return <Skeleton variant="rectangular" width="100%" height="75vh" />
+        return <Skeleton animation="wave" variant="rectangular" width="100%" height="75vh" />
     }
 
     const lastImg = itemData[itemData.length - 1];

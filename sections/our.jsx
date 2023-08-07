@@ -31,33 +31,26 @@ export const Our = () => {
                     {
                         dataCompany.map((our, indexs) => {
                             return (
-                                <div key={indexs} >
 
+                                <Grid key={indexs} container spacing={10} sx={{ alignItems: "center", display: "flex", justifyContent: "space-between" }}>
+                                    <Grid item xs={12} lg={6}>
+                                        <Box sx={{ width: '100%', typography: 'body1' }}>
+                                            <Stack spacing={2}>
+                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"titulo  noticia"}></Titles>
+                                                {our.biography}
+                                            </Stack>
 
-
-                                    <Grid container spacing={10} sx={{ alignItems: "center", display: "flex", justifyContent: "space-between" }}>
-                                        <Grid item xs={12} lg={6}>
-                                            <Box sx={{ width: '100%', typography: 'body1' }}>
-                                                <Stack spacing={2}>
-                                                    <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"titulo  noticia"}></Titles>
-                                                    {our.biography}
-                                                </Stack>
-
-                                            </Box>
-                                        </Grid>
-                                        <Grid item xs={12} lg={5} >
-                                            <Box>
-                                                <CardMedia component="img" className='imgGolbal'
-                                                    image={our.imageUrl}
-                                                />
-                                            </Box>
-                                        </Grid>
+                                        </Box>
                                     </Grid>
-
-                                </div>
-
+                                    <Grid item xs={12} lg={5} >
+                                        <Box>
+                                            <CardMedia component="img" className='imgGolbal'
+                                                image={our.imageUrl}
+                                            />
+                                        </Box>
+                                    </Grid>
+                                </Grid>
                             )
-
                         })
                     }
 
@@ -66,30 +59,30 @@ export const Our = () => {
                     {
                         dataCompany.map((empresa, index) => {
                             return (
-                                <div key={index}>
-                                    <Grid container spacing={10} sx={{ justifyContent: "center" }}>
-                                        <Grid item md={4}>
-                                            <Card sx={{ backgroundColor: "rgb(114, 181, 247 ,0.5)" }}>
-                                                <CardContent>
-                                                    <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={"Vision"} ></Titles>
-                                                    <Typography variant="p" sx={{ fontSize: fontSize }} >
-                                                        {empresa.vision}
-                                                    </Typography>
-                                                </CardContent>
-                                            </Card>
-                                        </Grid>
-                                        <Grid item md={4}>
-                                            <Card sx={{ backgroundColor: "rgb(170, 222, 133,0.5)", }}>
-                                                <CardContent>
-                                                    <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={"Mision"} ></Titles>
-                                                    <Typography variant="p" sx={{ fontSize: fontSize }} >
-                                                        {empresa.mission}
-                                                    </Typography>
-                                                </CardContent>
-                                            </Card>
-                                        </Grid>
+
+                                <Grid key={index} container spacing={10} sx={{ justifyContent: "center" }}>
+                                    <Grid item md={4}>
+                                        <Card sx={{ backgroundColor: "rgb(114, 181, 247 ,0.5)" }}>
+                                            <CardContent>
+                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={"Vision"} ></Titles>
+                                                <Typography variant="p" sx={{ fontSize: fontSize }} >
+                                                    {empresa.vision}
+                                                </Typography>
+                                            </CardContent>
+                                        </Card>
                                     </Grid>
-                                </div>
+                                    <Grid item md={4}>
+                                        <Card sx={{ backgroundColor: "rgb(170, 222, 133,0.5)", }}>
+                                            <CardContent>
+                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={"Mision"} ></Titles>
+                                                <Typography variant="p" sx={{ fontSize: fontSize }} >
+                                                    {empresa.mission}
+                                                </Typography>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                </Grid>
+
 
                             )
                         })
@@ -123,7 +116,7 @@ export const Our = () => {
                                         dataEmployee.map((employee, i) => {
                                             return (
                                                 <>
-                                                    <SwiperSlide className={our.slide}>
+                                                    <SwiperSlide key={i} className={our.slide}>
                                                         <div className={our.contentTextSlider} >
                                                             <Image className={our.img} src={employee.imageUrl} alt="asd" height={100} width={100} />
                                                             <p>{employee.biography}</p>

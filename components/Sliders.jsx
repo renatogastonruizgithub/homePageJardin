@@ -37,8 +37,8 @@ const Sliders = ({ children, nextButtonId, prevButtonId }) => {
                             }}
 
                             navigation={{
-                                nextEl: `.swiper-button-next ${nextButtonId}`,
-                                prevEl: `.swiper-button-prev ${prevButtonId}`,
+                                nextEl: `.swiper-button-next .${nextButtonId}`,
+                                prevEl: `.swiper-button-prev .${prevButtonId}`,
 
                             }}
                             modules={[Autoplay, Navigation]}

@@ -12,7 +12,7 @@ import 'swiper/css';
 import "swiper/css/navigation";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPublication, getPublicationRelevant } from '../features/thunksHome';
-import Cards from '../components/cards';
+import Cards from '../components/Cards';
 import Sliders from '../components/Sliders';
 
 
