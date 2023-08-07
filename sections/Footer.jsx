@@ -10,9 +10,10 @@ import ListItemText from '@mui/material/ListItemText';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import RoomIcon from '@mui/icons-material/Room';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
+
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
+import bg from '../public/assets/footer-pattern.png'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { getCompany } from '../features/thunksHome';
