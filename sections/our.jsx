@@ -36,7 +36,7 @@ export const Our = () => {
                                     <Grid item xs={12} lg={6}>
                                         <Box sx={{ width: '100%', typography: 'body1' }}>
                                             <Stack spacing={2}>
-                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"titulo  noticia"}></Titles>
+                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={our.name}></Titles>
                                                 {our.biography}
                                             </Stack>
 
@@ -61,25 +61,25 @@ export const Our = () => {
                             return (
 
                                 <Grid key={index} container spacing={10} sx={{ justifyContent: "center" }}>
-                                    <Grid item md={4}>
-                                        <Card sx={{ backgroundColor: "rgb(114, 181, 247 ,0.5)" }}>
-                                            <CardContent>
-                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={"Vision"} ></Titles>
-                                                <Typography variant="p" sx={{ fontSize: fontSize }} >
-                                                    {empresa.vision}
-                                                </Typography>
-                                            </CardContent>
-                                        </Card>
+                                    <Grid item md={12}>
+                                        {/*  <Card sx={{ backgroundColor: "rgb(114, 181, 247 ,0.5)" }}>
+                                            <CardContent> */}
+                                        <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Perfil de los egresado"} ></Titles>
+                                        <Typography variant="p" sx={{ fontSize: fontSize }} >
+                                            {empresa.vision}
+                                        </Typography>
+                                        {/*     </CardContent>
+                                        </Card> */}
                                     </Grid>
-                                    <Grid item md={4}>
-                                        <Card sx={{ backgroundColor: "rgb(170, 222, 133,0.5)", }}>
-                                            <CardContent>
-                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={"Mision"} ></Titles>
-                                                <Typography variant="p" sx={{ fontSize: fontSize }} >
-                                                    {empresa.mission}
-                                                </Typography>
-                                            </CardContent>
-                                        </Card>
+                                    <Grid item md={12}>
+                                        {/*  <Card sx={{ backgroundColor: "rgb(170, 222, 133,0.5)", }}>
+                                            <CardContent> */}
+                                        <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Proyecto institucional"} ></Titles>
+                                        <Typography variant="p" sx={{ fontSize: fontSize }} >
+                                            {empresa.mission}
+                                        </Typography>
+                                        {/*    </CardContent>
+                                        </Card> */}
                                     </Grid>
                                 </Grid>
 
@@ -95,7 +95,7 @@ export const Our = () => {
                     <Grid container sx={{ justifyContent: "center", marginTop: "6rem" }}>
 
                         <Grid item md={6} xs={12} sx={{ position: "relative" }}>
-                            <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={"Nuestros profes"} ></Titles>
+                            <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Nuestros profes"} ></Titles>
                             <div className={our.contentSliderTeacher}>
 
                                 <Swiper navigation={{

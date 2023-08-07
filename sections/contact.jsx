@@ -28,7 +28,8 @@ export const Contact = () => {
                                 top: "100%",
                                 left: "50%",
                                 width: "60%",
-                                transform: "translate(-50%, -50%)"
+                                transform: "translate(-50%, -50%)",
+                                backgroundColor: "#ffffffc4"
                             }}>
                             <Typography variant='h4' sx={{ fontWeight: "900", fontSize: { sm: "1.7rem", lg: "2rem" } }}>
                                 ¿Necesitas mas informacion?
