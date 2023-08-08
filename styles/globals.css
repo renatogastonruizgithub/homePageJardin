@@ -108,9 +108,23 @@ p {
 .swiper-button-prev {
     width: 20px !important;
     height: 20px !important;
-    color: rgb(21, 21, 21) !important;
+    color: rgb(255, 255, 255);
 
 }
+
+.swiper-button-next::after {
+    font-size: 1rem !important;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.swiper-button-prev::after {
+    font-size: 1rem !important;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+
 
 #nextOur,
 #prevOur {
@@ -119,11 +133,26 @@ p {
     color: rgb(27, 26, 26) !important;
 }
 
-#nextBanner,
-#prevBanner {
+
+
+.nextBanner,
+.prevBanner {
     width: 20px !important;
     height: 20px !important;
-    color: rgb(251, 251, 251) !important;
+    position: absolute;
+    z-index: 100;
+    border-radius: 50%;
+    top: 50%;
+}
+
+
+.nextBanner {
+    right: 5% !important;
+}
+
+.prevBanner {
+
+    left: 5% !important;
 }
 
 a {

@@ -59,7 +59,7 @@ const Footer = () => {
                                 return (
                                     <div key={inde} >
                                         <Stack spacing={2}>
-                                            <Logo />
+                                            <Logo color="#fff" />
                                             <Social color="#fff"></Social>
 
                                         </Stack>

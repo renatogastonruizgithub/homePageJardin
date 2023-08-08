@@ -1,10 +1,10 @@
-import { Box, Skeleton } from '@mui/material'
+import { Box, Skeleton, Stack } from '@mui/material'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCompany } from '../features/thunksHome'
 
-const Logo = () => {
+const Logo = ({ color }) => {
     const { dataCompany } = useSelector((state) => state.home)
     const dispatch = useDispatch()
 
@@ -21,9 +21,10 @@ const Logo = () => {
             {
                 dataCompany.map((item, d) => {
                     return (
-                        <Box
+                        <Stack direction="row"
                             sx={{
-                                display: { xs: 'block', md: 'block' },
+                                display: { xs: 'block', md: 'flex' },
+                                alignItems: "center",
                                 borderRadius: "50%",
                                 height: "50px", width: "50px"
                             }}
@@ -36,7 +37,8 @@ const Logo = () => {
                                 src={item.imageUrl} alt="logo jardin"
                                 width={50}
                                 height={50} />
-                        </Box>
+                            <p style={{ marginLeft: "1rem", color: color }}>{item.name}</p>
+                        </Stack>
 
                     )
                 })

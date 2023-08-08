@@ -33,19 +33,20 @@ export const Our = () => {
                             return (
 
                                 <Grid key={indexs} container spacing={10} sx={{ alignItems: "center", display: "flex", justifyContent: "space-between" }}>
-                                    <Grid item xs={12} lg={6}>
+                                    <Grid item xs={12} lg={7}>
                                         <Box sx={{ width: '100%', typography: 'body1' }}>
                                             <Stack spacing={2}>
-                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={our.name}></Titles>
+                                                <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={our.name}></Titles>
                                                 {our.biography}
                                             </Stack>
 
                                         </Box>
                                     </Grid>
-                                    <Grid item xs={12} lg={5} >
+                                    <Grid item xs={12} lg={4} >
                                         <Box>
                                             <CardMedia component="img" className='imgGolbal'
                                                 image={our.imageUrl}
+
                                             />
                                         </Box>
                                     </Grid>
@@ -119,9 +120,10 @@ export const Our = () => {
                                                     <SwiperSlide key={i} className={our.slide}>
                                                         <div className={our.contentTextSlider} >
                                                             <Image className={our.img} src={employee.imageUrl} alt="asd" height={100} width={100} />
-                                                            <p>{employee.biography}</p>
+
                                                             <h3>{employee.name + " " + employee.last_name}</h3>
                                                             <span>{employee.title}</span>
+                                                            <p>{employee.biography}</p>
                                                         </div>
                                                     </SwiperSlide>
                                                 </>

@@ -87,7 +87,7 @@ const Navbar = () => {
                             >
                                 <MenuIcon />
                             </IconButton>
-                            <Logo></Logo>
+                            <Logo color="#000"></Logo>
 
 
                             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
