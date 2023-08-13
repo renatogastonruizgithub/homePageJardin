@@ -7,4 +7,8 @@ export const store = configureStore({
         home: homeSlice,
         gallery: gallerySlice
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        })
 })

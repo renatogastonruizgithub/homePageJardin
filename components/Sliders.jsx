@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from "swiper";
 import 'swiper/css';
 import "swiper/css/navigation";
+import ReactDOM from 'react-dom'; // Importa ReactDOM para Portals
+import { Grid, Container, Box } from '@mui/material';
 
-import { Grid, Typography, Container, Box } from '@mui/material';
-
-const Sliders = ({ children, nextButtonId, prevButtonId }) => {
+const Sliders = ({ children, prevButtonRef, nextButtonRef }) => {
+    const navigationNextRef = useRef(null);
+    const navigationPrevRef = useRef(null);
     return (
-        <Container maxWidth="lg" sx={{ marginTop: "6rem", marginBottom: "6rem" }}>
+        <Container maxWidth="lg" sx={{ marginTop: "6rem", marginBottom: "0rem" }}>
 
             <Grid container spacing={10}>
                 <Grid item xs={12} md={12} >
@@ -22,7 +24,7 @@ const Sliders = ({ children, nextButtonId, prevButtonId }) => {
                             breakpoints={{
                                 768: {
                                     slidesPerView: 3,
-                                    spaceBetween: 10,
+                                    spaceBetween: 50,
                                 },
                                 1024: {
                                     slidesPerView: 3,
@@ -37,26 +39,25 @@ const Sliders = ({ children, nextButtonId, prevButtonId }) => {
                             }}
 
                             navigation={{
-                                nextEl: `.swiper-button-next .${nextButtonId}`,
-                                prevEl: `.swiper-button-prev .${prevButtonId}`,
-
+                                prevEl: navigationPrevRef.current,
+                                nextEl: navigationNextRef.current,
                             }}
+
+                            onBeforeInit={(swiper) => {
+                                swiper.navigation.nextEl = navigationNextRef.current;
+                                swiper.navigation.prevEl = navigationPrevRef.current;
+                            }}
+
                             modules={[Autoplay, Navigation]}
                             initialSlide={0}
-
-
                             className="mySwiper"
                             centeredSlides={false}
-                        /*  onSlideChange={() => console.log('slide change')}
-                         onSwiper={(swiper) => console.log(swiper)} */
                         >
                             {children}
-
-
                         </Swiper>
 
-                        <div className={`swiper-button-next ${nextButtonId}`}></div>
-                        <div className={`swiper-button-prev ${prevButtonId}`}></div>
+                        <div ref={navigationNextRef} id={nextButtonRef} className="swiper-button-next" ></div>
+                        <div ref={navigationPrevRef} id={prevButtonRef} className="swiper-button-prev" ></div>
                     </Box>
 
                 </Grid>
@@ -67,3 +68,4 @@ const Sliders = ({ children, nextButtonId, prevButtonId }) => {
 }
 
 export default Sliders
+

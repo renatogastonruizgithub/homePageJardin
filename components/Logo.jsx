@@ -23,7 +23,7 @@ const Logo = ({ color }) => {
                     return (
                         <Stack direction="row"
                             sx={{
-                                display: { xs: 'block', md: 'flex' },
+                                display: { xs: 'flex', md: 'flex' },
                                 alignItems: "center",
                                 borderRadius: "50%",
                                 height: "50px", width: "50px"

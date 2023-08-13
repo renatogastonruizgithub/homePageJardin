@@ -114,20 +114,20 @@ p {
 
 .swiper-button-next::after {
     font-size: 1rem !important;
-    color: rgb(255, 255, 255);
+    /*  color: rgb(255, 255, 255); */
     font-weight: 600;
 }
 
 .swiper-button-prev::after {
     font-size: 1rem !important;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
     font-weight: 600;
 }
 
 
 
-#nextOur,
-#prevOur {
+.nextOur,
+.prevOur {
     width: 20px !important;
     height: 20px !important;
     color: rgb(27, 26, 26) !important;
@@ -148,10 +148,11 @@ p {
 
 .nextBanner {
     right: 5% !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 .prevBanner {
-
+    color: rgb(255, 255, 255) !important;
     left: 5% !important;
 }
 
@@ -248,6 +249,51 @@ html {
     }
 }
 
-.swal2-container {
-    z-index: 4000 !important;
+
+
+/* Propiedad de scrollbar */
+html::-webkit-scrollbar {
+    width: 10px !important;
+}
+
+/* Track */
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+html::-webkit-scrollbar-thumb {
+    background-color: #007aff;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+html::-webkit-scrollbar-thumb:hover {
+    background-color: #007aff;
+}
+
+/* Prefijos para navegadores Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #007aff transparent;
+}
+
+html::-moz-scrollbar {
+    width: 10px !important;
+}
+
+/* Track */
+html::-moz-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+html::-moz-scrollbar-thumb {
+    background-color: #007aff;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+html::-moz-scrollbar-thumb:hover {
+    background-color: #007aff;
 }

@@ -9,6 +9,15 @@ export const homeSlice = createSlice({
         dataEmployee: [],
         dataPublication: [],
         dataPublicationRelevant: [],
+        oneEmployee: {
+            name: "",
+            imageUrl: ""
+        },
+        onePublication: {
+            title: "",
+            biography: ""
+        },
+        isOpen: false,
     },
     reducers: {
         setProject: (state, action) => {
@@ -23,11 +32,22 @@ export const homeSlice = createSlice({
         setPublication: (state, action) => {
             state.dataPublication = action.payload
         },
+        setOnePublication: (state, action) => {
+            state.onePublication.title = action.payload.title
+            state.onePublication.biography = action.payload.biography
+        },
         setPublicationRelevant: (state, action) => {
             state.dataPublicationRelevant = action.payload
+        },
+        setOneEmploye: (state, action) => {
+            state.oneEmployee.imageUrl = action.payload.imageUrl
+            state.oneEmployee.name = action.payload.name
+        },
+        openEmploye: (state, action) => {
+            state.isOpen = action.payload
         },
     },
 });
 
-export const { setPublicationRelevant, setProject, setCompany, setEmployee, setPublication } = homeSlice.actions;
+export const { setOnePublication, openEmploye, setOneEmploye, setPublicationRelevant, setProject, setCompany, setEmployee, setPublication } = homeSlice.actions;
 export default homeSlice.reducer

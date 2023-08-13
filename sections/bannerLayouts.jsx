@@ -13,6 +13,7 @@ export const BannerLayouts = ({ title, itemData }) => {
     }
 
     const lastImg = itemData[itemData.length - 1];
+
     const router = useRouter();
     const ir = () => {
         router.push("/")

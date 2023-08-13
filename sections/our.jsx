@@ -1,5 +1,5 @@
 import { Container } from '@mui/system'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import Grid from '@mui/material/Grid';
 import { Card, CardContent, CardMedia, Typography, Box, Stack } from '@mui/material';
 import Image from 'next/image';
@@ -11,18 +11,30 @@ import "swiper/css/navigation";
 import { useDispatch, useSelector } from 'react-redux';
 import { getCompany, getEmployee } from '../features/thunksHome';
 import { Titles } from '../components/titles';
+import { openEmploye, setOneEmploye } from '../features/homeSlice';
+import Lightbox from '../components/lightbox';
 
 
 
 export const Our = () => {
     const fontSize = "1.3rem"
 
-    const { dataCompany, dataEmployee } = useSelector((state) => state.home)
+    const { dataCompany, dataEmployee, isOpen, oneEmployee } = useSelector((state) => state.home)
     const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(getCompany())
         dispatch(getEmployee())
     }, [])
+
+    const swowImage = useCallback(() => {
+        dispatch(openEmploye(!isOpen));
+    }, [dispatch, isOpen]);
+
+    const viewImageModal = useCallback((imageUrl, name) => {
+        dispatch(setOneEmploye({ imageUrl, name }));
+        swowImage();
+    }, [dispatch, swowImage]);
 
     return (
         <>
@@ -96,7 +108,7 @@ export const Our = () => {
                     <Grid container sx={{ justifyContent: "center", marginTop: "6rem" }}>
 
                         <Grid item md={6} xs={12} sx={{ position: "relative" }}>
-                            <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Nuestros profes"} ></Titles>
+                            <Titles textAlign="center" colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Nuestros profes"} ></Titles>
                             <div className={our.contentSliderTeacher}>
 
                                 <Swiper navigation={{
@@ -109,21 +121,27 @@ export const Our = () => {
                                     modules={[Autoplay, Navigation]}
                                     initialSlide={0}
                                     centeredSlides={false} className="mySwiper"
+                                    autoplay={true}
 
-                                    onSlideChange={() => console.log('slide change')}
-                                    onSwiper={(swiper) => console.log(swiper)}
                                 >
                                     {
                                         dataEmployee.map((employee, i) => {
                                             return (
                                                 <>
                                                     <SwiperSlide key={i} className={our.slide}>
-                                                        <div className={our.contentTextSlider} >
-                                                            <Image className={our.img} src={employee.imageUrl} alt="asd" height={100} width={100} />
 
+                                                        <div className={our.contentTextSlider} >
+                                                            <div className={our.contentImgSlider}>
+                                                                <span onClick={() => viewImageModal(employee.imageUrl, employee.name)}>Ver</span>
+                                                                <img
+                                                                    className={our.img}
+                                                                    src={employee.imageUrl}
+                                                                    alt="asd"
+                                                                />
+                                                            </div>
                                                             <h3>{employee.name + " " + employee.last_name}</h3>
                                                             <span>{employee.title}</span>
-                                                            <p>{employee.biography}</p>
+                                                            <Typography sx={{ marginTop: ".4rem" }} color="GrayText" variant='subtitle2' >{employee.biography}</Typography >
                                                         </div>
                                                     </SwiperSlide>
                                                 </>
@@ -132,13 +150,19 @@ export const Our = () => {
                                     }
 
                                 </Swiper>
-                                <div id='nextOur' className="swiper-button-next"></div>
-                                <div id='prevOur' className="swiper-button-prev"></div>
+                                <div className="swiper-button-next nextOur"></div>
+                                <div className="swiper-button-prev prevOur"></div>
                             </div>
                         </Grid>
                     </Grid>
                 </Container>
+                <Lightbox
 
+                    src={oneEmployee.imageUrl}
+                    open={isOpen}
+                    onClosed={swowImage}
+                    data={`profe ${oneEmployee.name}`}
+                />
             </section>
         </>
     )

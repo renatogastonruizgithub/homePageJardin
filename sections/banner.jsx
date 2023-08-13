@@ -37,8 +37,7 @@ function Banner() {
         <>
             <div className={banner.contentBanner}>
                 <Swiper navigation={{
-                    /*   nextEl: ".swiper-button-next",
-                      prevEl: ".swiper-button-prev" */
+
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current,
                 }}
@@ -87,12 +86,8 @@ function Banner() {
                         })
                     }
 
-
-
-
                 </Swiper>
-                {/*  <div id='nextBanner' className="swiper-button-next" />
-                <div id='prevBanner' className="swiper-button-prev" /> */}
+
                 <div ref={navigationNextRef} className="swiper-button-next nextBanner"></div>
                 <div ref={navigationPrevRef} className=" swiper-button-prev prevBanner"></div>
             </div>

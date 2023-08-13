@@ -13,6 +13,7 @@
         height: 100% !important;
         border-radius: 10px;
         position: relative !important;
+        overflow: hidden;
     }
 
     &:hover span {
@@ -37,6 +38,7 @@
         font-weight: 900;
         z-index: 1000;
         opacity: 0;
+        overflow: hidden;
     }
 
 

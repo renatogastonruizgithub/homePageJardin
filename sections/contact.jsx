@@ -27,7 +27,7 @@ export const Contact = () => {
                                 zIndex: "1000",
                                 top: "100%",
                                 left: "50%",
-                                width: "60%",
+                                width: { xs: "90%", md: "90%", lg: "60%" },
                                 transform: "translate(-50%, -50%)",
                                 backgroundColor: "#ffffffc4"
                             }}>
