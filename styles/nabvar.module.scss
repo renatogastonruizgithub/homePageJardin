@@ -10,8 +10,8 @@
 }
 
 .transparent {
-    background-color: transparent;
-    box-shadow: none;
+    background-color: transparent !important;
+    box-shadow: none !important;
 
     a,
     p,
@@ -22,7 +22,7 @@
 }
 
 .white {
-    background-color: #fff;
+    background-color: #fff !important;
 
     a,
     svg {
