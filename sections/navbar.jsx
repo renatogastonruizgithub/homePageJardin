@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,40 +11,58 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+
 import Button from '@mui/material/Button';
 import props from 'prop-types';
 import { Container } from '@mui/system';
 
 import Link from 'next/link'
 import navb from "../styles/nabvar.module.scss"
-import { Stack } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getCompany } from '../features/thunksHome';
-import Image from 'next/image';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Logo from '../components/Logo';
 import Social from '../components/Social';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
     const drawerWidth = 240;
-    const navItems = [{ title: "Home", url: "/" }, { title: "Nosotros", url: "/#nosotros" }, { title: "Proyectos", url: "/proyectos" }, { title: "Noticias", url: "/noticias" }, { title: "Galeria", url: "/galeria" }];
-
-
-
+    const navItems = [
+        { title: 'Home', url: '/' },
+        { title: 'Nosotros', url: '/#nosotros' },
+        { title: 'Proyectos', url: '/proyectos' },
+        { title: 'Noticias', url: '/noticias' },
+        { title: 'Galeria', url: '/galeria' },
+    ];
 
     const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
+    const [isTransparent, setIsTransparent] = useState(false);
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 570,
+
+    });
+
+    useEffect(() => {
+        setIsTransparent(!trigger);
+    }, [trigger]);
+
+
 
     const drawer = (
-        <Box onClick={handleDrawerToggle}
-            sx={{ height: '100vh', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-
+        <Box
+            onClick={handleDrawerToggle}
+            sx={{
+                height: '100vh',
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
         >
             <List>
                 {
@@ -73,10 +91,16 @@ const Navbar = () => {
 
     return (
         <>
+
             <Container maxWidth="sm">
                 <Box sx={{ display: 'flex' }}>
                     <CssBaseline />
-                    <AppBar component="nav" sx={{ backgroundColor: "white" }}>
+                    <AppBar
+                        position="fixed"
+                        component="nav"
+                        className={isTransparent ? `${navb.transparent}` : `${navb.white}`}
+
+                    >
                         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                             <IconButton
                                 color="#000"
@@ -87,7 +111,7 @@ const Navbar = () => {
                             >
                                 <MenuIcon />
                             </IconButton>
-                            <Logo color="#000"></Logo>
+                            <Logo color={isTransparent ? "#fff" : "#000"}></Logo>
 
 
                             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
@@ -115,7 +139,7 @@ const Navbar = () => {
                             open={mobileOpen}
                             onClose={handleDrawerToggle}
                             ModalProps={{
-                                keepMounted: true, // Better open performance on mobile.
+                                keepMounted: true,
                             }}
                             sx={{
                                 display: { xs: 'block', md: 'none' },
@@ -126,9 +150,10 @@ const Navbar = () => {
                         </Drawer>
                     </Box>
                 </Box>
-            </Container>
+            </Container >
+
         </>
     )
-}
+};
 
 export default Navbar

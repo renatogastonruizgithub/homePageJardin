@@ -49,7 +49,10 @@ export const Our = () => {
                                         <Box sx={{ width: '100%', typography: 'body1' }}>
                                             <Stack spacing={2}>
                                                 <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={our.name}></Titles>
-                                                {our.biography}
+                                                <Typography variant='body1'>
+                                                    {our.biography}
+                                                </Typography>
+
                                             </Stack>
 
                                         </Box>
@@ -75,24 +78,17 @@ export const Our = () => {
 
                                 <Grid key={index} container spacing={10} sx={{ justifyContent: "center" }}>
                                     <Grid item md={12}>
-                                        {/*  <Card sx={{ backgroundColor: "rgb(114, 181, 247 ,0.5)" }}>
-                                            <CardContent> */}
                                         <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Perfil de los egresado"} ></Titles>
-                                        <Typography variant="p" sx={{ fontSize: fontSize }} >
+                                        <Typography variant="body1" sx={{ fontSize: fontSize }} >
                                             {empresa.vision}
                                         </Typography>
-                                        {/*     </CardContent>
-                                        </Card> */}
                                     </Grid>
                                     <Grid item md={12}>
-                                        {/*  <Card sx={{ backgroundColor: "rgb(170, 222, 133,0.5)", }}>
-                                            <CardContent> */}
                                         <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Proyecto institucional"} ></Titles>
-                                        <Typography variant="p" sx={{ fontSize: fontSize }} >
+                                        <Typography variant="body1" sx={{ fontSize: fontSize }} >
                                             {empresa.mission}
                                         </Typography>
-                                        {/*    </CardContent>
-                                        </Card> */}
+
                                     </Grid>
                                 </Grid>
 

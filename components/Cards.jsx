@@ -31,7 +31,13 @@ const Cards = ({ url, title, biography, date, onclick }) => {
                     <Typography gutterBottom variant="h5" component="div">
                         {title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography sx={{
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        width: "90%",
+                        textAlign: "center"
+                    }} variant="body2" color="text.secondary">
                         {biography}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ marginTop: "1rem" }}>

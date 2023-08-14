@@ -8,3 +8,24 @@
     font-size: 1.1rem;
     margin: .3rem 0;
 }
+
+.transparent {
+    background-color: transparent;
+    box-shadow: none;
+
+    a,
+    p,
+    svg {
+        color: #fff;
+    }
+
+}
+
+.white {
+    background-color: #fff;
+
+    a,
+    svg {
+        color: #000000;
+    }
+}

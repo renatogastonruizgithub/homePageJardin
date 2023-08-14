@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import { Titles } from '../components/titles';
 import { getPublicationRelevant } from '../features/thunksHome';
 import { useDispatch, useSelector } from 'react-redux';
-import { Skeleton } from '@mui/material';
+import { Skeleton, Typography } from '@mui/material';
 
 import 'swiper/css/effect-fade';
 
@@ -74,7 +74,13 @@ function Banner() {
                                             variant={"h2"}
                                             text={publication.title}
                                         />
-                                        <p>{publication.biography}</p>
+                                        <Typography variant='body2' sx={{
+                                            textOverflow: "ellipsis",
+                                            whiteSpace: "nowrap",
+                                            overflow: "hidden",
+                                            width: "90%",
+                                            textAlign: "center"
+                                        }}>{publication.biography}</Typography>
                                         <Button size="medium" type="submit" variant="contained" sx={{ backgroundColor: "#ff3366" }} >
                                             Ver mas
                                         </Button>

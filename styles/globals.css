@@ -297,3 +297,8 @@ html::-moz-scrollbar-thumb {
 html::-moz-scrollbar-thumb:hover {
     background-color: #007aff;
 }
+
+p {
+    text-align: justify;
+    white-space: break-spaces;
+}
