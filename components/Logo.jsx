@@ -26,7 +26,7 @@ const Logo = ({ color }) => {
                                 display: { xs: 'flex', md: 'flex' },
                                 alignItems: "center",
                                 borderRadius: "50%",
-                                height: "50px", width: "50px"
+                                height: "50px", width: "auto"
                             }}
                             key={d}
                         >
