@@ -1,5 +1,5 @@
-import { Container, Grid, Typography, Stack, Item } from '@mui/material'
-import React, { useEffect } from 'react'
+import { Container, Grid, Typography, Stack, Item, Box } from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import footer from "../styles/footer.module.scss"
 import Image from 'next/image';
 import List from '@mui/material/List';
@@ -10,8 +10,8 @@ import ListItemText from '@mui/material/ListItemText';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import RoomIcon from '@mui/icons-material/Room';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 import bg from '../public/assets/footer-pattern.png'
 
@@ -20,21 +20,33 @@ import { getCompany } from '../features/thunksHome';
 import Logo from '../components/Logo';
 import Social from '../components/Social';
 
+import ModalBanner from '../components/ModalBanner';
+import MapComponent from '../components/MapComponent ';
+
 const Footer = () => {
     const { dataCompany } = useSelector((state) => state.home)
+
+    const [Open, setOpen] = useState(false)
+    const [direction, setDirection] = useState("")
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getCompany())
     }, [])
 
 
-    const footerLinks = ['Home', 'Proyectos', 'Nosotros', 'Galeria', 'Noticias', 'Contactanos'];
+
     const today = new Date();
     const style = {
         backgroundImage: `url(${bg.src})`,
         width: '100%',
         height: '100%',
 
+    }
+
+    const openMap = (address) => {
+        setOpen(!Open)
+        setDirection(address)
     }
 
     return (
@@ -55,36 +67,18 @@ const Footer = () => {
                 <Container maxWidth="lg">
                     <Grid container spacing={5}>
                         <Grid item md={4} xs={12}>
-                            {dataCompany.map((y, inde) => {
-                                return (
-                                    <div key={inde} >
-                                        <Stack spacing={2}>
-                                            <Logo color="#fff" />
-                                            <Social color="#fff"></Social>
-
-                                        </Stack>
-                                    </div>
-
-                                )
-                            })
-                            }
+                            <Stack sx={{ marginTop: { xs: "4rem", lg: "0", md: "0" } }} spacing={2}>
+                                <Logo color="#fff" />
+                            </Stack>
                         </Grid>
                         <Grid item md={4} xs={12}>
                             <Typography variant="h5" gutterBottom>
-                                Links
+                                Seguinos en nuestras redes!
                             </Typography>
-                            <List>
-                                {footerLinks.map((item, ii) => (
-                                    <div key={ii}>
-                                        <ListItem disablePadding>
-                                            <ListItemButton >
-                                                <ListItemText primary={item} />
-                                            </ListItemButton>
-                                        </ListItem>
-                                    </div>
+                            <Stack direction="column">
+                                <Social color="#fff"></Social>
+                            </Stack>
 
-                                ))}
-                            </List>
                         </Grid>
                         <Grid item md={4} xs={12}>
                             <Typography variant="h5" gutterBottom>
@@ -97,17 +91,19 @@ const Footer = () => {
                                         <div key={l}>
                                             <List>
                                                 <ListItem disablePadding>
-                                                    <ListItemButton>
+                                                    <ListItemButton onClick={() => openMap(links.location)}>
                                                         <ListItemIcon>
                                                             <RoomIcon sx={{ color: '#fff' }} />
                                                         </ListItemIcon>
-                                                        <ListItemText primary={links.location} />
+                                                        <Stack direction="column">
+                                                            <ListItemText primary={links.location + "  " + "(Ver en el mapa)"} />
+                                                        </Stack>
                                                     </ListItemButton>
                                                 </ListItem>
                                                 <ListItem disablePadding>
                                                     <ListItemButton>
                                                         <ListItemIcon>
-                                                            <WhatsAppIcon sx={{ color: '#fff' }} />
+                                                            <LocalPhoneIcon sx={{ color: '#fff' }} />
                                                         </ListItemIcon>
                                                         <ListItemText primary={links.phone} />
                                                     </ListItemButton>
@@ -145,6 +141,12 @@ const Footer = () => {
             <div className={footer.signature}>
                 <span>Copyrighted by ©{today.getFullYear()}</span>
             </div>
+
+            <ModalBanner
+                open={Open}
+                onClosed={openMap}
+                data={<MapComponent address={direction} />}
+            />
 
         </>
     )

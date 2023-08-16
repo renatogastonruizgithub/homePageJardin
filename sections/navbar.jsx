@@ -128,7 +128,7 @@ const Navbar = (props) => {
 
                             </Box>
 
-                            <Social color="#000" xs="none"></Social>
+                            <Social color="#000" xs="none" wapp={true}></Social>
 
                         </Toolbar>
                     </AppBar>

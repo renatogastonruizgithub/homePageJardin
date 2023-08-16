@@ -77,7 +77,10 @@ export default function Galeria() {
 
                                 <Stack sx={{ marginTop: "3rem", display: "grid", placeItems: "center" }}>
                                     <Pagination
-
+                                        sx={{
+                                            borderRadius: "10px",
+                                            boxShadow: "inset 0 -3em 3em rgb(11 9 9 / 10%),0 0 0 2px rgba(4, 47, 101, 0),0.3em 0.3em 1em rgba(0, 0, 0, 0.3)"
+                                        }}
                                         page={currentPage + 1}
                                         onChange={handleChanges}
                                         count={totalPages} shape="rounded" />

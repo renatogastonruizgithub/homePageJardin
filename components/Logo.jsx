@@ -33,7 +33,7 @@ const Logo = ({ color }) => {
 
                             <Image
                                 sizes='cover'
-                                style={{ objectFit: "cover", borderRadius: "50%" }}
+                                style={{ objectFit: "contain", borderRadius: "50%" }}
                                 src={item.imageUrl} alt="logo jardin"
                                 width={50}
                                 height={50} />

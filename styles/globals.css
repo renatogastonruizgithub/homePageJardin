@@ -93,10 +93,11 @@ h3,
 h4,
 h5,
 h6,
+p,
+a,
+span {
 
-p {
-    font-family: "Public Sans", sans-serif !important;
-
+    font-family: 'Fredoka', sans-serif !important;
 }
 
 :root {
@@ -301,4 +302,5 @@ html::-moz-scrollbar-thumb:hover {
 p {
     text-align: justify;
     white-space: break-spaces;
+
 }

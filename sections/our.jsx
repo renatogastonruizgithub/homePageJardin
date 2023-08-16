@@ -60,7 +60,7 @@ export const Our = () => {
                                     <Grid item xs={12} lg={4} >
                                         <Box>
                                             <CardMedia component="img" className='imgGolbal'
-                                                image={our.imageUrl}
+                                                image={our.imageCompanyUrl}
 
                                             />
                                         </Box>
@@ -153,11 +153,10 @@ export const Our = () => {
                     </Grid>
                 </Container>
                 <Lightbox
-
                     src={oneEmployee.imageUrl}
                     open={isOpen}
                     onClosed={swowImage}
-                    data={`profe ${oneEmployee.name}`}
+                    data={oneEmployee.name}
                 />
             </section>
         </>
