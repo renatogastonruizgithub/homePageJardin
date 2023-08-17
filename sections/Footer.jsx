@@ -113,7 +113,7 @@ const Footer = () => {
                                                         <ListItemIcon>
                                                             <DraftsIcon sx={{ color: '#fff' }} />
                                                         </ListItemIcon>
-                                                        <ListItemText primary={links.email} />
+                                                        <a style={{ color: "#fff" }} href={`mailto:${links.email}`}>{links.email}</a>
                                                     </ListItemButton>
                                                 </ListItem>
                                                 <ListItem disablePadding>
@@ -121,7 +121,7 @@ const Footer = () => {
                                                         <ListItemIcon>
                                                             <WatchLaterIcon sx={{ color: '#fff' }} />
                                                         </ListItemIcon>
-                                                        <ListItemText primary={links.schedules} />
+                                                        <a style={{ color: "#fff" }} href={`tel:${links.schedules}`}>{links.schedules}</a>
                                                     </ListItemButton>
                                                 </ListItem>
                                             </List>

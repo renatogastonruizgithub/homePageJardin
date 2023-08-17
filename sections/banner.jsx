@@ -60,11 +60,17 @@ function Banner() {
     return (
         <>
             <div className={banner.contentBanner}>
-                <Swiper navigation={{
+                <Swiper
+                    style={{
+                        "--swiper-pagination-color": "#FFF",
+                        "--swiper-pagination-bullet-size": "10px",
+                    }}
 
-                    prevEl: navigationPrevRef.current,
-                    nextEl: navigationNextRef.current,
-                }}
+                    navigation={{
+
+                        prevEl: navigationPrevRef.current,
+                        nextEl: navigationNextRef.current,
+                    }}
                     pagination={{
                         dynamicBullets: true,
                     }}
@@ -85,8 +91,7 @@ function Banner() {
                             translate: ['100%', 0, 0],
                         },
                     }}
-                /*  onSlideChange={() => console.log('slide change')}
-                 onSwiper={(swiper) => console.log(swiper)} */
+
                 >
                     {
                         lastThreePublication.map((publication, p) => {
@@ -109,7 +114,7 @@ function Banner() {
                                             Ver mas
                                         </Button>
                                     </div>
-                                    <Image style={{ objectFit: "cover", width: "100%" }} className={banner.img} src={publication.imageUrl} alt="asd" fill sizes="100vw" />
+                                    <Image priority={true} style={{ objectFit: "cover", width: "100%" }} className={banner.img} src={publication.imageUrl} alt="asd" fill sizes="100vw" />
 
                                 </SwiperSlide>
                             )

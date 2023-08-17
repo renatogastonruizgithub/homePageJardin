@@ -137,7 +137,7 @@ export const Our = () => {
                                                             </div>
                                                             <h3>{employee.name + " " + employee.last_name}</h3>
                                                             <span>{employee.title}</span>
-                                                            <Typography sx={{ marginTop: ".4rem" }} color="GrayText" variant='subtitle2' >{employee.biography}</Typography >
+                                                            <Typography sx={{ marginTop: ".4rem", color: "gray" }} variant='p' >{employee.biography}</Typography >
                                                         </div>
                                                     </SwiperSlide>
                                                 </>
