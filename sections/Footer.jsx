@@ -105,7 +105,7 @@ const Footer = () => {
                                                         <ListItemIcon>
                                                             <LocalPhoneIcon sx={{ color: '#fff' }} />
                                                         </ListItemIcon>
-                                                        <ListItemText primary={links.phone} />
+                                                        <a style={{ color: "#fff" }} href={`tel:${links.phone}`}>{links.phone}</a>
                                                     </ListItemButton>
                                                 </ListItem>
                                                 <ListItem disablePadding>
@@ -121,7 +121,7 @@ const Footer = () => {
                                                         <ListItemIcon>
                                                             <WatchLaterIcon sx={{ color: '#fff' }} />
                                                         </ListItemIcon>
-                                                        <a style={{ color: "#fff" }} href={`tel:${links.schedules}`}>{links.schedules}</a>
+                                                        <ListItemText primary={links.schedules} />
                                                     </ListItemButton>
                                                 </ListItem>
                                             </List>

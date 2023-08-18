@@ -49,7 +49,7 @@ export const Our = () => {
                                         <Box sx={{ width: '100%', typography: 'body1' }}>
                                             <Stack spacing={2}>
                                                 <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h3"} text={our.name}></Titles>
-                                                <Typography variant='body1'>
+                                                <Typography variant='body1' sx={{ fontSize: fontSize }} >
                                                     {our.biography}
                                                 </Typography>
 

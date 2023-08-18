@@ -83,7 +83,7 @@ const Navbar = (props) => {
             </List>
 
 
-            <Social color="#000" xs="block"></Social>
+            <Social color="#000" wapp={true} xs="block"></Social>
         </Box>
     );
 
