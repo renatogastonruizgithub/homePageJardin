@@ -21,7 +21,7 @@ import navb from "../styles/nabvar.module.scss"
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Logo from '../components/Logo';
 import Social from '../components/Social';
-
+import { useRouter } from 'next/router';
 
 const Navbar = (props) => {
     const drawerWidth = 240;
@@ -32,6 +32,8 @@ const Navbar = (props) => {
         { title: 'Noticias', url: '/noticias' },
         { title: 'Galeria', url: '/galeria' },
     ];
+    const router = useRouter();
+
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -67,12 +69,13 @@ const Navbar = (props) => {
             <List>
                 {
                     navItems.map((item, i) => {
+                        const isActive = router.asPath === item.url;
                         return (
 
                             <ListItem key={i} disablePadding>
                                 <ListItemButton sx={{ textAlign: 'center' }}>
 
-                                    <Link className={navb.linkMobile} href={item.url}>{item.title} </Link>
+                                    <Link className={`${navb.linkMobile} ${isActive ? 'active' : ''}`} href={item.url}>{item.title} </Link>
                                 </ListItemButton>
                             </ListItem>
                         )
@@ -117,10 +120,11 @@ const Navbar = (props) => {
                             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                                 {
                                     navItems.map((items, y) => {
+                                        const isActive = router.asPath === items.url;
                                         return (
-                                            <Button key={y} sx={{ color: '#000', textTransform: "none", letterSpacing: "1px" }}>
 
-                                                <Link className={navb.link} href={items.url}>{items.title} </Link>
+                                            <Button key={y} sx={{ textTransform: "none", letterSpacing: "1px" }}>
+                                                <Link className={`${navb.link} ${isActive ? 'active' : ''}`} href={items.url}>{items.title}</Link>
                                             </Button>
                                         )
                                     })

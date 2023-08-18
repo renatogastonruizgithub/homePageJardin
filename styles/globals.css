@@ -114,6 +114,14 @@ h6 {
     --swiper-navigation-size: 30px !important;
 }
 
+.active {
+
+    color: #007aff !important;
+    font-weight: 600;
+    margin-left: .4rem;
+    margin-right: .4rem;
+}
+
 .swiper-button-next,
 .swiper-button-prev {
     width: 20px !important;
