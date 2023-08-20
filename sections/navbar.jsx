@@ -30,7 +30,7 @@ const Navbar = (props) => {
         { title: 'Nosotros', url: '/#nosotros' },
         { title: 'Proyectos', url: '/proyectos' },
         { title: 'Noticias', url: '/noticias' },
-        { title: 'Galeria', url: '/galeria' },
+        { title: 'Galería', url: '/galeria' },
     ];
     const router = useRouter();
 

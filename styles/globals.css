@@ -92,12 +92,10 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p,
-a,
-span {
+h6 {
 
-    font-family: 'Fredoka', sans-serif !important;
+    /*  font-family: 'Fredoka', sans-serif !important; */
+    font-family: 'Spectral', serif !important;
 }
 
 h1,
@@ -316,8 +314,10 @@ html::-moz-scrollbar-thumb:hover {
     background-color: #007aff;
 }
 
-p {
+p,
+a,
+span {
     text-align: justify;
     white-space: break-spaces;
-
+    font-family: 'Nunito Sans', sans-serif;
 }

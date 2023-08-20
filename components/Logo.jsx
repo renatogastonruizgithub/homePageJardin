@@ -3,10 +3,12 @@ import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCompany } from '../features/thunksHome'
+import { useRouter } from 'next/router'
 
 const Logo = ({ color }) => {
     const { dataCompany } = useSelector((state) => state.home)
     const dispatch = useDispatch()
+    const router = useRouter()
 
     useEffect(() => {
         dispatch(getCompany())
@@ -26,9 +28,10 @@ const Logo = ({ color }) => {
                                 display: { xs: 'flex', md: 'flex' },
                                 alignItems: "center",
                                 borderRadius: "50%",
-                                height: "50px", width: "auto"
+                                height: "50px", width: "auto", cursor: "pointer"
                             }}
                             key={d}
+                            onClick={() => router.push('/')}
                         >
 
                             <Image

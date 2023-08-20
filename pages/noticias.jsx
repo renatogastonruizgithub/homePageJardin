@@ -16,6 +16,7 @@ import Cards from '../components/Cards';
 import Sliders from '../components/Sliders';
 import Modals from '../components/Modals';
 import { setOnePublication } from '../features/homeSlice';
+import FormatDate from '../components/FormatDate';
 
 export const ViewNoticie = ({ title, biography }) => {
     return (
@@ -57,7 +58,7 @@ const Noticias = () => {
 
 
 
-                <Container maxWidth="lg" sx={{ marginTop: "4rem", marginBottom: "2rem" }}>
+                <Container maxWidth="lg" sx={{ marginTop: "4rem", marginBottom: "0" }}>
                     <Grid container spacing={10}>
                         <Grid item xs={12}>
                             <Titles colorTitle={"#000"}
@@ -70,7 +71,7 @@ const Noticias = () => {
 
                 </Container>
 
-                <Container maxWidth="lg" sx={{ marginTop: "0rem", marginBottom: "4rem" }}>
+                <Container maxWidth="lg" sx={{ marginTop: "0rem", marginBottom: "0rem" }}>
 
                     <Grid container spacing={1}>
                         <Grid item xs={12} md={12} >
@@ -124,7 +125,7 @@ const Noticias = () => {
                                                         url={data.imageUrl}
                                                         title={data.title}
                                                         biography={data.biography}
-                                                        date={data.date_creation}
+                                                        date={<FormatDate data={data.date_creation} />}
                                                         onclick={() => viewNoticeModal(data.title, data.biography)}
                                                     />
                                                 </SwiperSlide>
@@ -144,7 +145,7 @@ const Noticias = () => {
 
 
 
-                <Container maxWidth="lg" sx={{ marginTop: "0rem", marginBottom: "4rem" }}>
+                <Container maxWidth="lg" sx={{ marginTop: "0rem", marginBottom: "0" }}>
 
                     <Grid container spacing={10}>
                         <Grid item xs={12}>
@@ -211,7 +212,7 @@ const Noticias = () => {
                                                         url={data.imageUrl}
                                                         title={data.title}
                                                         biography={data.biography}
-                                                        date={data.date_creation}
+                                                        date={<FormatDate data={data.date_creation} />}
                                                         onclick={() => viewNoticeModal(data.title, data.biography)}
                                                     />
                                                 </SwiperSlide>

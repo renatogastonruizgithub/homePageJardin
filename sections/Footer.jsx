@@ -73,7 +73,7 @@ const Footer = () => {
                         </Grid>
                         <Grid item md={4} xs={12}>
                             <Typography variant="h5" gutterBottom>
-                                Seguinos en nuestras redes!
+                                ¡Síguenos en nuestras redes!
                             </Typography>
                             <Stack direction="column">
                                 <Social color="#fff"></Social>
@@ -82,7 +82,7 @@ const Footer = () => {
                         </Grid>
                         <Grid item md={4} xs={12}>
                             <Typography variant="h5" gutterBottom>
-                                Contactanos!
+                                ¡Contáctanos!
                             </Typography>
 
                             {
@@ -117,7 +117,7 @@ const Footer = () => {
                                                     </ListItemButton>
                                                 </ListItem>
                                                 <ListItem disablePadding>
-                                                    <ListItemButton>
+                                                    <ListItemButton sx={{ cursor: "default", "&:hover": { background: "none" } }}>
                                                         <ListItemIcon>
                                                             <WatchLaterIcon sx={{ color: '#fff' }} />
                                                         </ListItemIcon>

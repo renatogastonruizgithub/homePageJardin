@@ -11,11 +11,11 @@ import TabPanel from '@mui/lab/TabPanel';
 import { Titles } from '../components/titles';
 import { useDispatch, useSelector } from 'react-redux'
 import { getProject } from '../features/thunksHome'
+import FormatDate from '../components/FormatDate'
 
 const Projectos = () => {
 
     const { dataProject } = useSelector((state) => state.home)
-
 
     const firstObjectId = dataProject.length > 0 ? dataProject[0].id.toString() : "0";
 
@@ -33,9 +33,6 @@ const Projectos = () => {
     const handleChange = (event, value) => {
         setValue(value);
     };
-
-
-
 
 
     const dispatch = useDispatch()
@@ -65,8 +62,8 @@ const Projectos = () => {
                                             />
                                         </Box>
                                     </Grid>
-                                    <Grid item xs={12} md={12}>
-                                        <Box sx={{ borderRadius: "8px", width: '100%', marginBottom: "5rem", typography: 'body1' }}>
+                                    <Grid item xs={12} md={12} sx={{ paddingTop: "0 !important" }}>
+                                        <Box sx={{ borderRadius: "8px", width: '100%', marginBottom: "5rem" }}>
                                             <TabContext value={value}>
                                                 <Box sx={{}}>
                                                     <TabList sx={{ backgroundColor: "white" }} variant="scrollable" allowScrollButtonsMobile
@@ -87,12 +84,13 @@ const Projectos = () => {
                                                 </Box>
                                                 {
                                                     dataProject.map((panel, i) => {
+
                                                         return (
 
                                                             <TabPanel value={panel.id.toString()} key={i}>
                                                                 <Grid container spacing={10} sx={{ alignItems: "center", display: "flex", justifyContent: "space-between" }}>
                                                                     <Grid item xs={12} lg={6}>
-                                                                        <Box sx={{ width: '100%', typography: 'body1' }}>
+                                                                        <Box sx={{ width: '100%' }}>
                                                                             <Stack spacing={2}>
                                                                                 <Titles colorTitle={"#000"}
                                                                                     color={"#ff3366"}
@@ -100,8 +98,9 @@ const Projectos = () => {
                                                                                     text={panel.name}
                                                                                 />
 
-                                                                                <Typography variant='body2'>{panel.biography}</Typography>
-                                                                                <Typography variant='p' >Publicado el {panel.date_creation}</Typography>
+                                                                                {/*    <Typography sx={{ marginTop: "0 !important" }} variant='body2'>{panel.biography}</Typography> */}
+                                                                                <p style={{ marginTop: "0px", fontSize: "1.3rem" }}>{panel.biography}</p>
+                                                                                <Typography variant='p'> Publicado el {<FormatDate data={panel.date_creation} />}</Typography>
                                                                             </Stack>
 
                                                                         </Box>

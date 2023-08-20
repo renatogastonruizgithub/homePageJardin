@@ -34,7 +34,7 @@ $tam2: 100px;
         }
 
         img {
-            object-fit: cover;
+            object-fit: contain;
             border-radius: $tam;
             border-bottom-left-radius: 100px;
             border-top-right-radius: $tam2 ;
@@ -49,7 +49,7 @@ $tam2: 100px;
 
             padding: 3rem 0;
             position: relative;
-
+            padding-top: .5rem;
 
 
             .contentTextSlider {
@@ -77,7 +77,7 @@ $tam2: 100px;
                             0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
                         cursor: pointer;
                         position: relative;
-
+                        object-fit: cover;
                     }
 
                     span {

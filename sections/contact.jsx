@@ -32,16 +32,16 @@ export const Contact = () => {
                                 backgroundColor: "#ffffffc4"
                             }}>
                             <Typography variant='h4' sx={{ fontWeight: "900", fontSize: { sm: "1.7rem", lg: "2rem" } }}>
-                                ¿Necesitas mas informacion?
+                                ¿Necesitas  más información?
                             </Typography>
                             <Typography variant='p' sx={{ fontSize: { sm: "1.1rem", lg: "1.2rem" }, marginTop: ".5rem" }}>
-                                !Estamos para ayudarte, ponte en contacto con nosotros!
+                                ¡Estamos aquí para ayudarte! Ponte en contacto con nosotros
                             </Typography>
                             {
                                 dataCompany.map((data, i) => {
                                     return (
                                         <Button key={i} sx={{ marginTop: "2.2rem" }} href={`https://api.whatsapp.com/send?phone=${data.linkLk},%20&text=Hola! quiero mas informacion`} target='_blank' startIcon={<WhatsAppIcon sx={{ color: "#fff" }} fontSize="medium" />} variant="contained" size='large' >
-                                            Escribinos por aqui
+                                            Escribinos por aquí
                                         </Button>
                                     )
                                 })
