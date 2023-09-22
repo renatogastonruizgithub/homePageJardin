@@ -78,7 +78,7 @@ export const Our = () => {
 
                                 <Grid key={index} container spacing={10} sx={{ justifyContent: "center" }}>
                                     <Grid item md={12}>
-                                        <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Perfil de los egresado"} ></Titles>
+                                        <Titles colorTitle={"#000"} color={"#ff3366"} variant={"h4"} text={"Perfil de los egresados"} ></Titles>
                                         <Typography variant="body1" sx={{ fontSize: fontSize }} >
                                             {empresa.vision}
                                         </Typography>
