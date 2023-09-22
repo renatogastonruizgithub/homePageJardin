@@ -321,3 +321,23 @@ span {
     white-space: break-spaces;
     font-family: 'Nunito Sans', sans-serif;
 }
+
+.swiper-button-prev {
+    left: -4%;
+
+
+}
+
+.swiper-button-next {
+    right: 4%;
+}
+
+.colorPagination {
+    bottom: -10px !important;
+}
+
+.colorPagination,
+.swiper-pagination-bullet-active {
+    background-color: #843939;
+    opacity: 1;
+}

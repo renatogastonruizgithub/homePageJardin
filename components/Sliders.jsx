@@ -1,71 +1,99 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper";
 import 'swiper/css';
 import "swiper/css/navigation";
-import ReactDOM from 'react-dom'; // Importa ReactDOM para Portals
-import { Grid, Container, Box } from '@mui/material';
+import SwiperCore from 'swiper';
 
-const Sliders = ({ children, prevButtonRef, nextButtonRef }) => {
-    const navigationNextRef = useRef(null);
-    const navigationPrevRef = useRef(null);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
+
+const Sliders = ({
+    children, navegation,
+    AutoplayDelay,
+    slidesPerViewMobile,
+    slidesPerViewTablet,
+    slidesPerViewDesktop,
+    centeredSlides
+}) => {
+    const swiperRef = useRef(null);
+    const nextButtonRef = useRef(null);
+    const prevButtonRef = useRef(null);
+    const paginationRef = useRef(null);
+    const swiperOptions = {
+        breakpoints: {
+            320: {
+                slidesPerView: slidesPerViewMobile,
+                spaceBetween: 10,
+                centeredSlides: centeredSlides,
+            },
+            768: {
+                slidesPerView: slidesPerViewTablet,
+                spaceBetween: 10,
+
+            },
+            1024: {
+                slidesPerView: slidesPerViewDesktop,
+                spaceBetween: 20,
+            },
+            1440: {
+                slidesPerView: slidesPerViewDesktop,
+                spaceBetween: 20,
+            },
+        },
+        navigation: {
+            nextEl: nextButtonRef.current,
+            prevEl: prevButtonRef.current,
+        },
+        pagination: {
+            el: paginationRef.current,
+            clickable: true,
+        },
+        autoplay: {
+            delay: AutoplayDelay,
+            disableOnInteraction: false,
+        },
+        /*  freeMode: true, */
+        initialSlide: 0,
+        /*   centeredSlides: centeredSlides, */
+        slidesPerView: 'auto',
+        onSlideChange: () => handleSlideChange(), // Llama a la función de SlideChange local
+        onSwiper: (swiper) => swiperRef.current = swiper, // Guarda la instancia de Swiper en el ref
+    };
+
+
+    const handleSlideChange = () => {
+
+    };
+
+    useEffect(() => {
+        if (swiperRef.current) {
+            swiperRef.current.on('slideChange', handleSlideChange);
+        }
+    }, []);
     return (
-        <Container maxWidth="lg" sx={{ marginTop: "6rem", marginBottom: "0rem" }}>
+        <div style={{ position: "relative" }}>
+            <Swiper
 
-            <Grid container spacing={10}>
-                <Grid item xs={12} md={12} >
-                    <Box sx={{
-                        borderRadius: "7px",
-                        position: "relative", display: "flex",
-                        alignItems: "center", justifyContent: "center",
-                        paddingLeft: "3rem", paddingRight: "3rem"
-                    }}>
-                        <Swiper
-                            breakpoints={{
-                                768: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 50,
-                                },
-                                1024: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 50
-                                },
-                                1440: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 50,
+                {...swiperOptions}
+            >
+                {
+                    children
+                }
 
-                                }
+            </Swiper>
+            {
+                navegation &&
+                <>
+                    <div ref={nextButtonRef} className="swiper-button-next" style={{ color: '#007aff' }} />
+                    <div ref={prevButtonRef} className="swiper-button-prev" style={{ color: '#007aff' }} />
+                </>
 
-                            }}
 
-                            navigation={{
-                                prevEl: navigationPrevRef.current,
-                                nextEl: navigationNextRef.current,
-                            }}
+            }
 
-                            onBeforeInit={(swiper) => {
-                                swiper.navigation.nextEl = navigationNextRef.current;
-                                swiper.navigation.prevEl = navigationPrevRef.current;
-                            }}
-
-                            modules={[Autoplay, Navigation]}
-                            initialSlide={0}
-                            className="mySwiper"
-                            centeredSlides={false}
-                        >
-                            {children}
-                        </Swiper>
-
-                        <div ref={navigationNextRef} id={nextButtonRef} className="swiper-button-next" ></div>
-                        <div ref={navigationPrevRef} id={prevButtonRef} className="swiper-button-prev" ></div>
-                    </Box>
-
-                </Grid>
-            </Grid>
-
-        </Container>
+            <div ref={paginationRef} className="swiper-pagination colorPagination" />
+        </div>
     )
 }
 
 export default Sliders
-

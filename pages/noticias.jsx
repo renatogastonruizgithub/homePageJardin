@@ -3,20 +3,20 @@ import { LayuotSecondary } from '../layouts/secondaryPages/layuotSecondary'
 import { BannerLayouts } from '../sections/bannerLayouts'
 import Box from '@mui/material/Box';
 import { Container } from '@mui/system';
-import { CardMedia, Grid, Stack, Typography, } from '@mui/material';
+import { Grid, Stack, Typography, } from '@mui/material';
 
 import { Titles } from '../components/titles';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from "swiper";
-import 'swiper/css';
-import "swiper/css/navigation";
+import { SwiperSlide } from 'swiper/react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getPublication, getPublicationRelevant } from '../features/thunksHome';
 import Cards from '../components/Cards';
-import Sliders from '../components/Sliders';
+
 import Modals from '../components/Modals';
 import { setOnePublication } from '../features/homeSlice';
 import FormatDate from '../components/FormatDate';
+import Sliders from '../components/Sliders';
+
 
 export const ViewNoticie = ({ title, biography }) => {
     return (
@@ -74,48 +74,19 @@ const Noticias = () => {
                 <Container maxWidth="lg" sx={{ marginTop: "0rem", marginBottom: "0rem" }}>
 
                     <Grid container spacing={1}>
-                        <Grid item xs={12} md={12} >
+                        <Grid item xs={12} md={12}  >
                             <Box sx={{
                                 borderRadius: "7px",
-                                position: "relative", display: "flex",
-                                alignItems: "center", justifyContent: "center",
-                                paddingLeft: "3rem", paddingRight: "3rem",
+                                position: "relative",
+
                             }}>
-                                <Swiper
-                                    breakpoints={{
-                                        320: {
-                                            slidesPerView: 1,
-                                            spaceBetween: 50
-                                        },
-                                        768: {
-                                            slidesPerView: 1,
-                                            spaceBetween: 100,
-                                        },
-                                        1024: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 50
-                                        },
-                                        1440: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 50,
-
-                                        }
-
-                                    }}
-
-                                    navigation={{
-                                        prevEl: ".swiper-button-prev",
-                                        nextEl: ".swiper-button-next",
-                                    }}
-
-
-
-                                    modules={[Autoplay, Navigation]}
-                                    initialSlide={0}
-                                    className="mySwiper"
-                                    autoplay={true}
+                                <Sliders AutoplayDelay={4000}
                                     centeredSlides={false}
+                                    slidesPerViewMobile={1}
+                                    slidesPerViewTablet={3}
+                                    slidesPerViewDesktop={3}
                                 >
+
                                     {
                                         dataPublicationRelevant.map((data, i) => {
                                             return (
@@ -133,9 +104,7 @@ const Noticias = () => {
                                         })
 
                                     }
-                                </Swiper>
-                                <div id="nextOur" className="swiper-button-next" ></div>
-                                <div id="prevOur" className="swiper-button-prev" ></div>
+                                </Sliders>
                             </Box>
 
                         </Grid>
@@ -164,45 +133,17 @@ const Noticias = () => {
                         <Grid item xs={12} md={12} >
                             <Box sx={{
                                 borderRadius: "7px",
-                                position: "relative", display: "flex",
-                                alignItems: "center", justifyContent: "center",
-                                paddingLeft: "3rem", paddingRight: "3rem",
+                                position: "relative",
+
                             }}>
-                                <Swiper
-                                    breakpoints={{
-                                        320: {
-                                            slidesPerView: 1,
-                                            spaceBetween: 50
-                                        },
-                                        768: {
-                                            slidesPerView: 1,
-                                            spaceBetween: 100,
-                                        },
-                                        1024: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 50
-                                        },
-                                        1440: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 50,
-
-                                        }
-
-                                    }}
-
-                                    navigation={{
-                                        prevEl: ".swiper-button-prev",
-                                        nextEl: ".swiper-button-next",
-                                    }}
-
-
-
-                                    modules={[Autoplay, Navigation]}
-                                    initialSlide={0}
-                                    className="mySwiper"
-                                    autoplay={true}
+                                <Sliders AutoplayDelay={4000}
                                     centeredSlides={false}
+                                    navegation={true}
+                                    slidesPerViewMobile={1}
+                                    slidesPerViewTablet={3}
+                                    slidesPerViewDesktop={3}
                                 >
+
                                     {
                                         dataPublication.map((data, i) => {
                                             return (
@@ -220,9 +161,7 @@ const Noticias = () => {
                                         })
 
                                     }
-                                </Swiper>
-                                <div id="nextOur" className="swiper-button-next" ></div>
-                                <div id="prevOur" className="swiper-button-prev" ></div>
+                                </Sliders>
                             </Box>
 
                         </Grid>
